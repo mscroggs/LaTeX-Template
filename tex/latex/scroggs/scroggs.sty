@@ -1,0 +1,94 @@
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{color}
+\usepackage{upgreek}
+\usepackage{ifthen}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{relsize}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{tikz}
+    \addtolength{\oddsidemargin}{-.875in}
+    \addtolength{\evensidemargin}{-.875in}
+    \addtolength{\textwidth}{1.75in}
+
+    \addtolength{\topmargin}{-.875in}
+    \addtolength{\textheight}{1.75in}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\newcommand{\fact}[1][]{\ensuremath{^\text{[citation needed\ifthenelse{\equal{#1}{}}{}{: #1}]}}}
+\newcommand{\dx}[1][x]{\ \mathrm{d}#1}
+\newcommand{\nvec}{\mathbf{n}}
+\newcommand{\transpose}{^\mathsf{T}}
+\newcommand{\adj}{'}
+\newcommand{\order}{\mathcal{O}}
+\newcommand{\given}{\Big|}
+\renewcommand{\vec}[1]{{\boldsymbol{#1}}}
+\renewcommand{\pi}{\uppi}
+\newcommand{\e}{\textrm{e}}
+\newcommand{\DtN}{\mathsf{DtN}}
+\newcommand{\esssup}{\operatorname{ess}\sup}
+\newcommand{\ii}{\textrm{i}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\defined}{\textit}
+\newcommand{\norm}[2][]{\ensuremath{
+        \left\|#2\right\|\ifthenelse {\equal{#1}{}} {} {_{\hspace*{-1pt}\raisebox{-5pt}{$\scriptstyle#1$}}}
+}}
+\newcommand{\seminorm}[2][]{\ensuremath{
+        \left|#2\right|\ifthenelse {\equal{#1}{}} {} {_{\hspace*{-1pt}\raisebox{-5pt}{$\scriptstyle#1$}}}
+}}
+\newcommand{\curl}[1][]{\nabla\ifthenelse{\equal{#1}{}}{}{_{#1}}\times}
+\newcommand{\divv}[1][]{\nabla\ifthenelse{\equal{#1}{}}{}{_{#1}}\cdot}
+\newcommand{\grad}[1][]{\nabla\ifthenelse{\equal{#1}{}}{}{_{#1}}}
+\newcommand{\tensor}[1]{\underline{\vec{#1}}}
+
+\newcommand{\references}[1][]{\printbibliography[#1]}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{refs.bib}
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+\newenvironment{proof}[1][]{\textit{Proof\ifthenelse{\equal{#1}{}}{}{ of (\ref{#1})}: }}{\hfill\ensuremath{\square}}
+\newenvironment{result}[1][]{
+        \ifthenelse
+            {\equal{#1}{}}
+            {}
+            {#1\tcblower}
+    }{}
+
+\tcolorboxenvironment{result}{enhanced,borderline={0.75mm}{0mm}{gray}}
+\tcolorboxenvironment{proof}{enhanced,
+frame hidden,interior hidden,top=1mm,boxsep=0mm,left=10mm,
+borderline south={0.25mm}{0mm}{gray},
+borderline north={0.25mm}{0mm}{gray},
+borderline east={1mm}{0mm}{gray},
+%borderline west={1mm}{0mm}{gray},
+before skip=5pt,
+after skip=9pt
+}
+
